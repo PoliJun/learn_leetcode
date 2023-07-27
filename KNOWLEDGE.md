@@ -108,3 +108,98 @@ Source: Conversation with Bing, 7/26/2023
     > This code will work, as the `self` parameter is now used to refer to the current instance of the `Person` class.
     >
     > I hope this helps! Let me know if you have any other questions.
+
+## `tuple` vs. `list`, in python
+
+Tuples and lists are both sequences in Python, but they have some key differences. Tuples are immutable, while lists are mutable. This means that once a tuple is created, its elements cannot be changed, while the elements of a list can be changed.
+
+Another difference between tuples and lists is that tuples are typically faster than lists. This is because tuples are stored in a single memory block, while lists are stored in two memory blocks. The first memory block contains the information about the list, such as its length and its type. The second memory block contains the actual elements of the list.
+
+Here is a table that summarizes the key differences between tuples and lists:
+
+| Feature      | Tuple                                                       | List                                                           |
+| ------------ | ----------------------------------------------------------- | -------------------------------------------------------------- |
+| Mutability   | Immutable                                                   | Mutable                                                        |
+| Speed        | Faster                                                      | Slower                                                         |
+| Memory usage | Less memory                                                 | More memory                                                    |
+| Use cases    | Constants, keys in dictionaries, return values of functions | Dynamic data structures, storing lists of data that may change |
+
+Here are some examples of when to use tuples and lists:
+
+-   Use tuples to store constants, such as the coordinates of a point on a map.
+-   Use tuples as keys in dictionaries, since tuples are immutable, they cannot be changed, which makes them a good choice for keys.
+-   Use tuples as return values of functions, since tuples are immutable, they can be safely returned from functions without worrying about the caller changing the values of the tuple.
+-   Use lists to store dynamic data structures, such as a list of names or a list of scores.
+-   Use lists to store lists of data that may change, since lists are mutable, they can be easily changed.
+
+Ultimately, the best way to decide whether to use a tuple or a list is to consider the specific situation. If you need a data structure that is immutable and fast, then use a tuple. If you need a data structure that is mutable and can store dynamic data, then use a list.
+
+# Thu Jul 27 22:24:00 CST 2023
+
+## data types in python
+
+In Python, data types are used to define the type of data that can be stored in variables. Python is a dynamically typed language, which means that the data type of a variable is determined at runtime based on the value assigned to it. Here are some common data types in Python:
+
+1. Numeric Types:
+
+    - `int`: Integers (whole numbers) like -5, 0, 100.
+    - `float`: Floating-point numbers with decimal points like 3.14, -2.5.
+
+2. String Type:
+
+    - `str`: Sequence of characters enclosed in single quotes ('...') or double quotes ("...").
+
+3. Boolean Type:
+
+    - `bool`: Represents True or False.
+
+4. Sequence Types:
+
+    - `list`: Ordered collection of elements, mutable (can be modified).
+    - `tuple`: Ordered collection of elements, immutable (cannot be modified).
+    - `range`: Represents an immutable sequence of numbers, often used for loops.
+
+5. Set Types:
+
+    - `set`: Unordered collection of unique elements, mutable (can be modified).
+    - `frozenset`: Unordered collection of unique elements, immutable (cannot be modified).
+
+6. Mapping Type:
+
+    - `dict`: Collection of key-value pairs, where keys are unique and immutable.
+
+7. None Type:
+    - `None`: Represents the absence of a value or a null value in Python.
+
+Python automatically converts data types as needed, allowing you to perform operations on different data types without explicit type conversions.
+
+Example:
+
+```python
+# Numeric Types
+x = 42           # int
+y = 3.14         # float
+
+# String Type
+name = 'John'    # str
+
+# Boolean Type
+is_student = True  # bool
+
+# List
+numbers = [1, 2, 3, 4]  # list
+
+# Tuple
+point = (10, 20)  # tuple
+
+# Set
+unique_numbers = {1, 2, 3, 4}  # set
+
+# Dictionary
+person = {'name': 'Alice', 'age': 30, 'is_student': False}  # dict
+
+# None Type
+result = None  # NoneType
+```
+
+Remember that Python is not statically typed like some other languages, so variables can change their data type during runtime based on the values assigned to them.
