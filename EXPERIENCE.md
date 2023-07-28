@@ -17,3 +17,8 @@
 ## Sliding Window
 
 This algorithm's point is to find out the condition where to do the left += 1.
+
+## stack
+
+-   When to consider this algorithm?
+    > when traverse an array with single direction, and pop the last element when meet some conditions.
