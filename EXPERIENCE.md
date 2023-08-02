@@ -52,3 +52,19 @@ Certainly, we can't move a pointer backward on a singly linked list, thus we can
 
 **intuition**  
 Put the odd nodes in a linked list and the even nodes in another. Then link the evenList to the tail of the oddList.
+
+# Wed Aug 2 14:50:31 CST 2023
+
+## Which approach to choose, BFS or DFS ?
+
+    The problem is to return a list of last elements from all levels,
+    so it's the way more natural to implement BFS here.
+
+    Time complexity is the same O(N)\mathcal{O}(N)O(N)
+    both for DFS and BFS since one has to visit all nodes.
+
+    Space complexity is O(H)\mathcal{O}(H)O(H) for DFS and
+    O(D)\mathcal{O}(D)O(D) for BFS, where HHH is a tree height,
+    and DDD is a tree diameter. They both result in
+    O(N)\mathcal{O}(N)O(N) space in the worst-case scenarios:
+    skewed tree for DFS and complete tree for BFS.

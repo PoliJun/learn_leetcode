@@ -371,3 +371,13 @@ print(d["b"]) # prints [1]
 
 The `defaultdict()` function is useful when you want to avoid raising a `KeyError` when working with dictionaries. It can also help you simplify your code and avoid using methods like `.setdefault()` or `.get()` to handle missing keys. It can also be used for various tasks such as grouping, counting, or accumulating values.
 d
+
+## variable's scope of `while`, `if`, and `for` in python is different from other languages
+
+[1]: https://stackoverflow.com/questions/36858963/python-access-variable-in-while-loop "Python access variable in while loop - Stack Overflow"
+[2]: https://stackoverflow.com/questions/3611760/scoping-in-python-for-loops "scope - Scoping in Python 'for' loops - Stack Overflow"
+[3]: https://www.geeksforgeeks.org/python-while-loop/ "Python While Loop - GeeksforGeeks"
+[4]: https://open.oregonstate.education/computationalbiology/chapter/variables-and-scope/ "Variables and Scope – A Primer for Computational Biology"
+[5]: https://www.educative.io/courses/python-ftw-under-the-hood/N8RW8508RkL "Loop Variables Leaking Out! - Python FTW: Under the Hood - Educative"
+
+The `node` variable can be accessed outside of the inner while loop because Python does not create a new scope for variables declared in if-statements, for-loop blocks, and while-loop blocks[^1^][4]. The variables defined in these blocks are not local variables, and they stay in scope outside of the block[^2^][3] [^3^][5]. This is different from some other languages, where variables declared in a loop are local to the loop and are destroyed when the loop exits[^4^][2]. In Python, you can use the `global` keyword to specify that a variable is assigned at the global scope[^5^][1], but there is no keyword to make a variable local to a loop.
