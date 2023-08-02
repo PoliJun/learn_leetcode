@@ -33,3 +33,22 @@ This is because queue is a data structure, it is used to store the data, then ma
 We also can use deque in `643`, but we need to cal the sum Ο(n) every move forward and extra space to store the numbers. But we don't need a copy of the data in `643`.
 
 Data structure and Algorithms are bounded together all the time. We need design the order of instructions, which is the algorithms, and we design the data structure, in which we can easily choose a paradim of algorithms to design an optimal solution.
+
+# Sun Jul 30 15:08:42 CST 2023
+
+## When consider `queue`?
+
+> Queue is an efficient data structure that can help us find the next closest opponent senator as well as the next eligible voter. It also helps us in simulating the voting process from left to right. Also, it is easier to keep track of rounds of voting by assuming the index increase by NNN after each round.
+
+## 2095. Delete the Middle Node of a Linked List
+
+### **Why we initialize `fast = head.next.next` at the begining?**
+
+The reason for this is that we want to deleted the middle node instead of finding it. Therefore, we are actually looking for the predecessor of the middle node, not the middle node itself, or rather, this is like moving slow backward one node after the iteration stops.
+
+Certainly, we can't move a pointer backward on a singly linked list, thus we can show this one less step on slow by letting fast moves forward one more step (by two nodes, of course). Hence, slow will also point to the predecessor node of the middle node (rather than the middle node) at the end of the iteration.
+
+### 328. Odd Even Linked List
+
+**intuition**  
+Put the odd nodes in a linked list and the even nodes in another. Then link the evenList to the tail of the oddList.

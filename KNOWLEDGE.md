@@ -203,3 +203,171 @@ result = None  # NoneType
 ```
 
 Remember that Python is not statically typed like some other languages, so variables can change their data type during runtime based on the values assigned to them.
+
+# Sun Jul 30 14:58:52 CST 2023
+
+## `bisect` — Array bisection algorithm
+
+**Read the documentation: [docs](https://docs.python.org/3/library/bisect.html)**
+
+**introduce ` bisect.bisect_left()` of python by gpt-3.5**
+
+> `bisect.bisect_left()` is a function in Python's built-in `bisect` module that provides a way to perform binary search on a sorted sequence. It helps find the insertion point for a target element in the sequence while maintaining the sequence's sorted order.
+>
+> Here's the general syntax of `bisect.bisect_left()`:
+>
+> ```python
+> import bisect
+>
+> index = bisect.bisect_left(sorted_sequence, target[, lo[, hi]])
+> ```
+>
+> Parameters:
+>
+> -   `sorted_sequence`: This is the sorted list or sequence in which you want to find the insertion point for the target element.
+> -   `target`: This is the element you want to find the insertion point for.
+> -   `lo` (optional): It specifies the lower bound index from which the search begins. By default, `lo` is set to 0.
+> -   `hi` (optional): It specifies the upper bound index at which the search ends. By default, `hi` is set to the length of the `sorted_sequence`.
+>
+> Return value:
+>
+> -   The function returns the index where the target element should be inserted in order to maintain the sorted order of the sequence.
+>
+> It's essential to note that `bisect.bisect_left()` returns the leftmost insertion point, meaning if there are duplicate elements equal to the target, it will return the index where the target should be inserted before those duplicates.
+>
+> Example:
+>
+> ```python
+> import bisect
+>
+> numbers = [1, 3, 5, 7, 9]
+>
+> # Find the insertion point for target value 4
+> index = bisect.bisect_left(numbers, 4)
+> print(index)  # Output: 2 (since 4 should be inserted at index 2 to maintain sorted order)
+> ```
+>
+> In this example, the target value is 4, and the function returns 2 because inserting 4 at index 2 in the `numbers` list will keep the list sorted.
+>
+> `bisect.bisect_left()` is useful when you have a sorted dataset and need to quickly find the insertion point for new elements to maintain the sorted order efficiently.
+
+# Mon Jul 31 15:46:12 CST 2023
+
+## introduce "binary tree - DFS"
+
+**From GPT-3.5:**  
+**Binary Tree - Depth-First Search (DFS)**
+
+A binary tree is a hierarchical data structure that consists of nodes connected by edges. Each node in a binary tree can have at most two children, known as the left child and the right child. The topmost node in the tree is called the root.
+
+Depth-First Search (DFS) is one of the fundamental tree traversal algorithms used to visit and explore all the nodes in a binary tree. DFS explores as far as possible along each branch before backtracking. It prioritizes exploring the depth of a tree before exploring its breadth.
+
+There are three common variants of DFS for binary trees:
+
+1. **In-Order DFS:** In this variant, we first visit the left subtree recursively, then the current node, and finally the right subtree recursively. For a binary search tree, the in-order DFS visits the nodes in ascending order, hence its name "in-order."
+
+2. **Pre-Order DFS:** In this variant, we first visit the current node, then the left subtree recursively, and finally the right subtree recursively.
+
+3. **Post-Order DFS:** In this variant, we first visit the left subtree recursively, then the right subtree recursively, and finally the current node.
+
+Each variant of DFS has its own specific use cases. For instance, in-order DFS is useful when you want to visit the nodes in a sorted order, pre-order DFS can be used to create a copy of the tree, and post-order DFS is often used to delete the tree.
+
+DFS can be implemented using both recursion and iteration (using a stack). Recursive DFS is straightforward to implement and can be intuitive for smaller trees. However, for larger trees, it may lead to stack overflow due to excessive recursion. Iterative DFS using a stack can be more efficient and is recommended for larger trees.
+
+Overall, DFS is a powerful algorithm to traverse binary trees and can be applied in various scenarios, such as searching for a specific node, checking for the existence of a node, performing tree-based calculations, and more.
+
+# Tue Aug 1 20:56:09 CST 2023
+
+## Introduce `nonlocal` key word in python
+
+[1]: https://stackoverflow.com/questions/1261875/what-does-nonlocal-do-in-python-3 "What does \"nonlocal\" do in Python 3? - Stack Overflow"
+[2]: https://www.w3schools.com/python/ref_keyword_nonlocal.asp "Python nonlocal Keyword - W3Schools"
+[3]: https://pythontic.com/concepts/keywords/nonlocal "The nonlocal keyword in Python | Pythontic.com"
+[4]: https://www.includehelp.com/python/nonlocal-keyword-with-example.aspx "nonlocal keyword with example in Python - Includehelp.com"
+[5]: https://www.delftstack.com/howto/python/nonlocal-python/ "The nonlocal Keyword in Python | Delft Stack"
+
+The `nonlocal` keyword in Python is used to modify a variable that is defined in an outer function scope, but not in the global scope. It allows a nested function to access and change a variable that belongs to its enclosing function.
+
+For example, consider this function that defines a nested function and a variable x:
+
+```python
+def outer ():
+  x = 0 # x is defined in the outer function scope
+  def inner ():
+    x = 1 # x is defined in the inner function scope
+    print (x) # prints 1
+  inner ()
+  print (x) # prints 0
+```
+
+In this case, the inner function creates a new local variable x that shadows the outer variable x. Therefore, changing the inner x does not affect the outer x.
+
+However, if we use the `nonlocal` keyword inside the inner function, we can tell Python that we want to refer to the outer x, not the local one:
+
+```python
+def outer ():
+  x = 0 # x is defined in the outer function scope
+  def inner ():
+    nonlocal x # x is declared as nonlocal
+    x = 1 # x is modified in the outer function scope
+    print (x) # prints 1
+  inner ()
+  print (x) # prints 1
+```
+
+In this case, the inner function modifies the outer variable x, and both functions print the same value.
+
+The `nonlocal` keyword can only be used inside a nested function. It cannot be used in the global scope or in a class. It can also be used with multiple variables, separated by commas.
+
+The `nonlocal` keyword is useful when we want to create closures or decorators that can modify the state of an outer function. It can also help us avoid using global variables that can cause unwanted side effects.
+
+For more information on `nonlocal` and its usage, you can refer to these sources:
+
+[^1^][1]: [What does "nonlocal" do in Python 3? - Stack Overflow](https://stackoverflow.com/questions/1261875/what-does-nonlocal-do-in-python-3)
+[^2^][2]: [Python nonlocal Keyword - W3Schools](https://www.w3schools.com/python/ref_keyword_nonlocal.asp)
+[^3^][3]: [The nonlocal keyword in Python | Pythontic.com](https://pythontic.com/concepts/keywords/nonlocal)
+[^4^][4]: [nonlocal keyword with example in Python - Includehelp.com](https://www.includehelp.com/python/nonlocal-keyword-with-example.aspx)
+[^5^][5]: [The nonlocal Keyword in Python | Delft Stack](https://www.delftstack.com/howto/python/nonlocal-python/)
+
+## Introduce `defaultdict()` in Python
+
+[1]: https://www.geeksforgeeks.org/defaultdict-in-python/ "Defaultdict in Python - GeeksforGeeks"
+[2]: https://realpython.com/python-defaultdict/ "Using the Python defaultdict Type for Handling Missing Keys"
+[3]: https://www.interviewkickstart.com/learn/defaultdict-in-python "What is Defaultdict in Python | Interviewkickstart"
+[4]: https://datagy.io/python-defaultdict/ "Python Defaultdict: Overview and Examples • datagy"
+[5]: https://geekflare.com/defaultdict-in-python/ "How and When Should You Use Defaultdict in Python?"
+
+The `defaultdict()` function in Python is a factory function that returns a subclass of the built-in `dict` class. The `defaultdict` class behaves like a regular dictionary, but it can handle missing keys more gracefully. It does so by providing a default value for any key that is not present in the dictionary.
+
+The `defaultdict()` function takes a single argument, which is a callable object (such as a function, a class, or a lambda expression) that returns the default value for the missing keys. This argument is called the `default_factory`. For example, you can create a `defaultdict` object with an integer as the default value:
+
+```python
+from collections import defaultdict
+d = defaultdict(int) # int is the default_factory
+```
+
+Now, if you try to access or modify a key that does not exist in `d`, the `defaultdict` object will automatically create that key and assign it the default value returned by the `default_factory`. In this case, the default value is 0:
+
+```python
+print(d["a"]) # prints 0
+d["b"] += 1 # creates key "b" and assigns it 1
+print(d["b"]) # prints 1
+```
+
+You can also use other types or functions as the `default_factory`. For example, you can use `list` to create a `defaultdict` object with an empty list as the default value:
+
+```python
+from collections import defaultdict
+d = defaultdict(list) # list is the default_factory
+```
+
+Now, if you try to access or modify a key that does not exist in `d`, the `defaultdict` object will automatically create that key and assign it an empty list:
+
+```python
+print(d["a"]) # prints []
+d["b"].append(1) # creates key "b" and appends 1 to its list
+print(d["b"]) # prints [1]
+```
+
+The `defaultdict()` function is useful when you want to avoid raising a `KeyError` when working with dictionaries. It can also help you simplify your code and avoid using methods like `.setdefault()` or `.get()` to handle missing keys. It can also be used for various tasks such as grouping, counting, or accumulating values.
+d
