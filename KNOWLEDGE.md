@@ -381,3 +381,40 @@ d
 [5]: https://www.educative.io/courses/python-ftw-under-the-hood/N8RW8508RkL "Loop Variables Leaking Out! - Python FTW: Under the Hood - Educative"
 
 The `node` variable can be accessed outside of the inner while loop because Python does not create a new scope for variables declared in if-statements, for-loop blocks, and while-loop blocks[^1^][4]. The variables defined in these blocks are not local variables, and they stay in scope outside of the block[^2^][3] [^3^][5]. This is different from some other languages, where variables declared in a loop are local to the loop and are destroyed when the loop exits[^4^][2]. In Python, you can use the `global` keyword to specify that a variable is assigned at the global scope[^5^][1], but there is no keyword to make a variable local to a loop.
+
+# Thu Aug 3 14:05:06 CST 2023
+
+## `heapq.heappop()` in Python
+
+[1]: https://docs.python.org/3/library/heapq.html "heapq — Heap queue algorithm — Python 3.11.4 documentation"
+[2]: https://realpython.com/python-heapq-module/ "The Python heapq Module: Using Heaps and Priority Queues"
+[3]: https://medium.com/plain-simple-software/python-heapq-use-cases-and-time-complexity-ee7cbb60420f "Python HeapQ Use Cases and Time Complexity - Medium"
+[4]: https://towardsdatascience.com/introduction-to-python-heapq-module-53534feda625 "Introduction to Python Heapq Module - Towards Data Science"
+
+The `heapq.heappop()` function in Python is used to pop and return the smallest item from a heap, maintaining the heap invariant[^1^][1]. A heap is a data structure that represents a priority queue, where the item with the highest priority (or the lowest value) is always at the root[^2^][2]. The heapq module implements heaps using lists, where the first element of the list is the root, and the rest of the elements follow the heap property[^3^][3].
+
+The `heapq.heappop()` function takes a list as an argument and returns the first element of the list, which is the smallest item in the heap. It also modifies the list in-place, so that it remains a valid heap after removing the smallest item. The time complexity of this operation is O(log n), where n is the size of the heap[^4^][4]. For example:
+
+```py
+import heapq
+
+# create a min heap from a list of numbers
+nums = [5, 7, 9, 1, 3]
+heapq.heapify(nums)
+
+# pop and return the smallest item from the heap
+print(heapq.heappop(nums)) # 1
+
+# the list is modified in-place
+print(nums) # [3, 5, 9, 7]
+```
+
+## explain `pairs.sort(key = lambda x: -x[1])`
+
+This is a Python code that sorts a list of pairs (tuples of two elements) in descending order by their second element. Here is how it works:
+
+-   `pairs` is the name of the list of pairs, such as `[(1, 2), (3, 4), (5, 6)]`.
+-   `sort` is a method of the list class that sorts the list in place, meaning it modifies the original list without returning a new one.
+-   `key` is a parameter of the sort method that specifies a function to be applied to each element of the list before comparing them for sorting. The function should return a value that can be compared, such as a number or a string.
+-   `lambda x: -x[1]` is an anonymous function (also called a lambda expression) that takes one argument `x` and returns the negative value of its second element. For example, if `x` is `(1, 2)`, then `-x[1]` is `-2`.
+-   By using this function as the key, the sort method will sort the pairs by their second element in reverse order, because the negative value reverses the comparison. For example, if the list is `[(1, 2), (3, 4), (5, 6)]`, then after sorting it will be `[(5, 6), (3, 4), (1, 2)]`, because `-6 < -4 < -2`.
