@@ -68,3 +68,37 @@ Put the odd nodes in a linked list and the even nodes in another. Then link the 
     and DDD is a tree diameter. They both result in
     O(N)\mathcal{O}(N)O(N) space in the worst-case scenarios:
     skewed tree for DFS and complete tree for BFS.
+
+# Sun Aug 6 16:59:51 CST 2023
+
+## DFS or BFS?
+
+Deciding whether to use Depth-First Search (DFS) or Breadth-First Search (BFS) depends on the specific requirements and characteristics of the graph and the problem you are trying to solve. Both DFS and BFS are essential graph traversal algorithms, but they have distinct strengths and use cases:
+
+1. Depth-First Search (DFS):
+
+    - DFS explores as far as possible along each branch before backtracking.
+    - It uses a stack (either explicit or recursive) to keep track of nodes to visit.
+    - DFS is generally more memory-efficient than BFS because it only needs to store information about the current path.
+    - It is often used in problems that require exploring all possible paths or to find a single path from a start node to a target node.
+    - DFS is also well-suited for problems like cycle detection, topological sorting, and connected component analysis.
+
+2. Breadth-First Search (BFS):
+    - BFS explores all nodes at the current depth level before moving to the next depth level.
+    - It uses a queue to keep track of nodes to visit in a level-by-level manner.
+    - BFS is typically used to find the shortest path in unweighted graphs since it guarantees the shortest path to any reachable node.
+    - It can be useful in problems where you want to explore the neighbors of a node before going deeper into the graph or when you need to find the shortest path.
+
+Here are some considerations to help you choose between DFS and BFS:
+
+-   **Shortest path**: If you need to find the shortest path between two nodes in an unweighted graph, BFS is the better choice due to its level-order traversal.
+
+-   **Memory efficiency**: If you are dealing with a very large graph and memory is a concern, DFS might be preferred because it uses less memory compared to BFS.
+
+-   **Completeness**: If you need to explore all possible paths in the graph or find all connected components, DFS is more appropriate as it ensures that all nodes are visited.
+
+-   **Topological sorting**: If you have a directed acyclic graph (DAG) and need to find a linear ordering of its nodes, then DFS is commonly used for topological sorting.
+
+-   **Cycle detection**: If you want to check whether a graph contains cycles, DFS is often the go-to algorithm.
+
+Ultimately, your choice between DFS and BFS should be guided by the specific problem requirements and the properties of the graph you are dealing with. In some cases, you may even combine both algorithms to achieve the desired results.
