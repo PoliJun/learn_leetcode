@@ -418,3 +418,33 @@ This is a Python code that sorts a list of pairs (tuples of two elements) in des
 -   `key` is a parameter of the sort method that specifies a function to be applied to each element of the list before comparing them for sorting. The function should return a value that can be compared, such as a number or a string.
 -   `lambda x: -x[1]` is an anonymous function (also called a lambda expression) that takes one argument `x` and returns the negative value of its second element. For example, if `x` is `(1, 2)`, then `-x[1]` is `-2`.
 -   By using this function as the key, the sort method will sort the pairs by their second element in reverse order, because the negative value reverses the comparison. For example, if the list is `[(1, 2), (3, 4), (5, 6)]`, then after sorting it will be `[(5, 6), (3, 4), (1, 2)]`, because `-6 < -4 < -2`.
+
+## In JavaScript, object keys are always converted to strings
+
+In JavaScript, object keys are always converted to strings, regardless of whether they are specified as strings or integers. This is because JavaScript objects are implemented as hash tables, and hash tables in JavaScript can only have string keys.
+
+When you use a non-string value as a key in an object literal or when adding properties dynamically to an object, JavaScript automatically converts the key to its string representation. For example:
+
+```js
+const obj = {};
+
+obj[42] = "forty-two";
+console.log(obj); // { "42": "forty-two" }
+```
+
+In this example, `42` is used as a key, but when the object is printed, it shows the key as `"42"` (a string representation of the number 42).
+
+Similarly, when you use dot notation or square bracket notation to access a property in an object, JavaScript internally converts the property name to a string before performing the access:
+
+```js
+const obj = {
+    42: "forty-two",
+};
+
+console.log(obj[42]); // "forty-two"
+console.log(obj["42"]); // "forty-two"
+```
+
+As you can see, both `obj[42]` and `obj["42"]` yield the same result because JavaScript internally converts the key to a string before looking up the property.
+
+Keep in mind that this automatic conversion of keys to strings can lead to unexpected behavior if you have keys that are not intended to be strings. If you need to work with keys of different types, you may want to handle the conversion explicitly using `String(key)` to ensure consistent behavior.
