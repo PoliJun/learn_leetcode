@@ -114,3 +114,8 @@ Ultimately, your choice between DFS and BFS should be guided by the specific pro
 ## Bottom-Up Solution
 
 Bottom-up dynamic programming is also known as tabulation and is done iteratively. Dynamic programming is based on the concept of overlapping subproblems and optimal substructure. This is when the solution to a problem can be constructed from solutions to similar and smaller subproblems. Solving a smaller version of the problem can be easier and faster, thus if we break up the problem into smaller subproblems, solving them can lead us to the final solution easier and faster.
+
+## Top-Down
+
+Bottom-up dynamic programming is named as such because we start from the bottom (in this case, the bottom of the staircase) and iteratively work our way to the top. Top-down dynamic programming starts at the top and works its way down to the base cases. Typically, this is implemented through recursion, and then made efficient using memoization. Memoization refers to storing the results of expensive function calls in order to avoid duplicate computations - we'll soon see why this is important for this problem. If you're new to recursion, check out the recursion explore card.
+![top_down](/img/top_down.png)
