@@ -108,3 +108,9 @@ Ultimately, your choice between DFS and BFS should be guided by the specific pro
 # Wed Aug 9 17:50:37 CST 2023
 
 **YOU MUST READ THE CODE OF ANSWER LINE BY LINE**
+
+# Sat Aug 12 12:48:24 CST 2023
+
+## Bottom-Up Solution
+
+Bottom-up dynamic programming is also known as tabulation and is done iteratively. Dynamic programming is based on the concept of overlapping subproblems and optimal substructure. This is when the solution to a problem can be constructed from solutions to similar and smaller subproblems. Solving a smaller version of the problem can be easier and faster, thus if we break up the problem into smaller subproblems, solving them can lead us to the final solution easier and faster.
