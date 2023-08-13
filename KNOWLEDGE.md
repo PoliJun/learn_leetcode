@@ -574,6 +574,7 @@ The `all()` function is a powerful tool that can be used to check if all of the 
     >
     > I hope this helps! Let me know if you have any other questions.
 -   `@cache` vs. `@lru_cache`
+
     > The `@cache` and `@lru_cache` decorators in Python are both used to cache the results of a function call. However, there are some key differences between the two decorators.
     >
     > The `@cache` decorator uses a simple caching algorithm that does not evict cache entries based on their age. This means that the `@cache` decorator can be used to cache the results of functions that are called frequently or that take a long time to execute. However, it can also lead to memory bloat if the function is called with a large number of different arguments.
@@ -590,3 +591,23 @@ The `all()` function is a powerful tool that can be used to check if all of the 
     > Ultimately, the best decorator to use depends on the specific needs of your application. If you need to cache the results of functions that are called frequently or that take a long time to execute, the `@cache` decorator is a good choice. If you need to prevent memory bloat and improve performance for functions that are called frequently with a small number of different arguments, the `@lru_cache` decorator is a better choice.
     >
     > I hope this helps! Let me know if you have any other questions.
+
+    ## python string `find()` function
+
+    see: [find()](https://www.geeksforgeeks.org/python-string-find/)  
+    Python String find() method returns the lowest index or first occurrence of the substring if it is found in a given string. If it is not found, then it returns -1.
+
+    Syntax: str_obj.find(sub, start, end)
+
+    Parameters:
+
+        sub: Substring that needs to be searched in the given string.
+        start (optional): Starting position where the substring needs to be checked within the string.
+        end (optional): End position is the index of the last value for the specified range. It is excluded while checking.
+
+    Return: Returns the lowest index of the substring if it is found in a given string. If it’s not found then it returns -1.
+
+## Edit Distance
+Edit distance is a term used in computer science. By definition, Edit distance is a string metric, a way of quantifying how dissimilar two strings (e.g. words) are to one another, measured by counting the minimum number of operations required to transform one string into the other. Source: [Wikipedia](https://en.wikipedia.org/wiki/Edit_distance).
+
+

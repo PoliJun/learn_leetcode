@@ -127,3 +127,11 @@ Leet Code: [house_robber](https://leetcode.com/problems/house-robber/)
 As we mentioned above, the easiest approach here is to try all possible combinations of house choices and then use the combination that gives the maximum amount of money to the robber. We do this because there is no plausible greedy strategy that we can use to decide if the robber should rob a particular house or not.
 
 We rely on our good friend recursion whenever we have choices involved in solving a problem. Technically, a robber can come back and rob a house that they previously rejected. However, since we are trying all options, we will not go back and rob an unrobbed house since that scenario will be covered in a different recursive path.
+
+# Sun Aug 13 15:00:47 CST 2023
+
+## recurrsion runtime error
+
+![](img/Screen%20Shot%202023-08-13%20at%2014.59.55.png)
+
+You can't do `buy = recurrsion() + i`
