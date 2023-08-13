@@ -490,3 +490,103 @@ print(all(number not in numbers for number in range(1, 6)))  # True
 ```
 
 The `all()` function is a powerful tool that can be used to check if all of the elements in an iterable are truthy. It can be used with any iterable, and it can be used with generators and iterators.
+
+# Sun Aug 13 13:49:35 CST 2023
+
+## `@cache` and `@lru_cache` decorators of python
+
+-   `@cache`
+    > The `@cache` notation in Python is a decorator that can be used to cache the results of a function call. This can be useful for functions that are called frequently or that take a long time to execute.
+    >
+    > The `@cache` decorator takes an optional argument that specifies the number of times the function should be cached. If the argument is not specified, the function will be cached indefinitely.
+    >
+    > For example, the following code defines a function that calculates the factorial of a number:
+    >
+    > ```python
+    > def factorial(n):
+    >  if n == 0:
+    >    return 1
+    >  else:
+    >    return n * factorial(n - 1)
+    > ```
+    >
+    > The following code uses the `@cache` decorator to cache the results of the `factorial()` function:
+    >
+    > ```python
+    > @cache
+    > def factorial(n):
+    >  if n == 0:
+    >    return 1
+    >  else:
+    >    return n * factorial(n - 1)
+    > ```
+    >
+    > Now, the `factorial()` function will only be called once for each value of `n`. The results of the function call will be cached and used for subsequent calls to the function.
+    >
+    > This can be a significant performance improvement for functions that are called frequently or that take a long time to execute.
+    >
+    > Here is a table of the different arguments that can be passed to the `@cache` decorator:
+    >
+    > | Argument  | Description                                                                                                                                                                                |
+    > | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+    > | maxsize   | The maximum number of times the function should be cached. If the number of times the function is called exceeds the `maxsize` value, the least recently used cache entry will be evicted. |
+    > | timeout   | The amount of time that the function should be cached. If the function is not called within the `timeout` period, the cache entry will be evicted.                                         |
+    > | hash_func | A function that can be used to hash the arguments to the function. The default hash function is `hash()`.                                                                                  |
+    > | unless    | A function that can be used to determine if the function should be cached. If the `unless` function returns `True`, the function will not be cached.                                       |
+    >
+    > I hope this helps! Let me know if you have any other questions.
+-   `@lru_cache`
+    > The `@lru_cache` decorator in Python is a decorator that can be used to cache the results of a function call using the least recently used (LRU) algorithm. This can be useful for functions that are called frequently or that take a long time to execute.
+    >
+    > The `@lru_cache` decorator takes an optional argument that specifies the maximum size of the cache. If the argument is not specified, the cache will be unlimited in size.
+    >
+    > For example, the following code defines a function that calculates the factorial of a number:
+    >
+    > ```python
+    > def factorial(n):
+    >  if n == 0:
+    >    return 1
+    >  else:
+    >    return n * factorial(n - 1)
+    > ```
+    >
+    > The following code uses the `@lru_cache` decorator to cache the results of the `factorial()` function:
+    >
+    > ```python
+    > @lru_cache(maxsize=1000)
+    > def factorial(n):
+    >  if n == 0:
+    >    return 1
+    >  else:
+    >    return n * factorial(n - 1)
+    > ```
+    >
+    > Now, the `factorial()` function will only be called once for each value of `n`. The results of the function call will be cached and used for subsequent calls to the function.
+    >
+    > This can be a significant performance improvement for functions that are called frequently or that take a long time to execute.
+    >
+    > Here is a table of the different arguments that can be passed to the `@lru_cache` decorator:
+    >
+    > | Argument | Description                                                                                                                                                                                           |
+    > | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    > | maxsize  | The maximum number of items that should be cached. If the number of items exceeds the `maxsize` value, the least recently used item will be evicted.                                                  |
+    > | typed    | If set to `True`, the cache will be keyed by the type of the arguments as well as the arguments themselves. This can improve performance for functions that have multiple arguments of the same type. |
+    >
+    > I hope this helps! Let me know if you have any other questions.
+-   `@cache` vs. `@lru_cache`
+    > The `@cache` and `@lru_cache` decorators in Python are both used to cache the results of a function call. However, there are some key differences between the two decorators.
+    >
+    > The `@cache` decorator uses a simple caching algorithm that does not evict cache entries based on their age. This means that the `@cache` decorator can be used to cache the results of functions that are called frequently or that take a long time to execute. However, it can also lead to memory bloat if the function is called with a large number of different arguments.
+    >
+    > The `@lru_cache` decorator uses the least recently used (LRU) algorithm to evict cache entries. This means that the `@lru_cache` decorator only caches the results of the most recently used functions. This can prevent memory bloat and improve performance for functions that are called frequently with a small number of different arguments.
+    >
+    > Here is a table that summarizes the key differences between the `@cache` and `@lru_cache` decorators:
+    >
+    > | Decorator    | Algorithm | Eviction | Memory Usage         | Performance |
+    > | ------------ | --------- | -------- | -------------------- | ----------- |
+    > | `@cache`     | Simple    | No       | Can bloat            | Good        |
+    > | `@lru_cache` | LRU       | Yes      | Less likely to bloat | Better      |
+    >
+    > Ultimately, the best decorator to use depends on the specific needs of your application. If you need to cache the results of functions that are called frequently or that take a long time to execute, the `@cache` decorator is a good choice. If you need to prevent memory bloat and improve performance for functions that are called frequently with a small number of different arguments, the `@lru_cache` decorator is a better choice.
+    >
+    > I hope this helps! Let me know if you have any other questions.
