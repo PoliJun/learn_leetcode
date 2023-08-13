@@ -135,3 +135,29 @@ We rely on our good friend recursion whenever we have choices involved in solvin
 ![](img/Screen%20Shot%202023-08-13%20at%2014.59.55.png)
 
 You can't do `buy = recurrsion() + i`
+
+## plus 1 to count
+
+[leetcode Edit Distance](https://leetcode.com/problems/edit-distance/)
+
+```py
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        n1, n2 = len(word1), len(word2)
+        @cache
+        def recur(word1, word2, index1, index2):
+
+            if index1 == 0:
+                return index2
+            if index2 == 0:
+                return index1
+            if word1[index1-1] == word2[index2-1]:
+                return recur(word1, word2, index1-1, index2-1)
+            else:
+                insert = recur(word1, word2, index1, index2-1)
+                delete = recur(word1, word2, index1-1, index2)
+                replace = recur(word1, word2, index1-1, index2-1)
+                return min(insert, delete, replace) + 1
+
+        return recur(word1, word2, n1, n2)
+```
