@@ -161,3 +161,21 @@ class Solution:
 
         return recur(word1, word2, n1, n2)
 ```
+
+**Bing Answer:**  
+[1]: https://en.wikipedia.org/wiki/Edit_distance ""
+[2]: https://www.geeksforgeeks.org/edit-distance-dp-5/ ""
+[3]: https://en.wikipedia.org/wiki/Levenshtein_distance ""
+[4]: https://bdebo.medium.com/edit-distance-643a4bcfaa09 ""
+
+Hi, this is Bing. I'm glad you're interested in the edit distance problem. 😊
+
+The edit distance problem is a way of measuring how similar two strings are by counting the minimum number of operations needed to transform one string into another. The operations can be insertion, deletion, or substitution of a single character. [^1^][1]
+
+The reason why we add 1 in the recursive function is to account for the cost of performing one of these operations. For example, if we want to transform "cat" into "cut", we need to substitute "a" with "u", which has a cost of 1. So, the edit distance is the minimum cost of transforming the rest of the string ("c" and "t") plus 1.
+
+Similarly, if we want to transform "cat" into "cats", we need to insert "s" at the end, which also has a cost of 1. So, the edit distance is the minimum cost of transforming the rest of the string ("cat") plus 1.
+
+The base cases of the recursive function are when one of the strings is empty. In that case, the edit distance is equal to the length of the other string, because we need to either insert or delete all the characters in that string.
+
+I hope this explanation helps you understand the logic behind the recursive solution. If you want to learn more about the edit distance problem and its applications, you can check out these links: [Wikipedia article](https://en.wikipedia.org/wiki/Edit_distance), [GeeksforGeeks tutorial](https://www.geeksforgeeks.org/edit-distance-dp-5/), [Medium article](https://bdebo.medium.com/edit-distance-643a4bcfaa09). Have a nice day! 😊
