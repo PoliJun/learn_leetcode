@@ -179,3 +179,7 @@ Similarly, if we want to transform "cat" into "cats", we need to insert "s" at t
 The base cases of the recursive function are when one of the strings is empty. In that case, the edit distance is equal to the length of the other string, because we need to either insert or delete all the characters in that string.
 
 I hope this explanation helps you understand the logic behind the recursive solution. If you want to learn more about the edit distance problem and its applications, you can check out these links: [Wikipedia article](https://en.wikipedia.org/wiki/Edit_distance), [GeeksforGeeks tutorial](https://www.geeksforgeeks.org/edit-distance-dp-5/), [Medium article](https://bdebo.medium.com/edit-distance-643a4bcfaa09). Have a nice day! 😊
+
+## `&` operator to check 0 or 1
+
+    To obtain the least significant bit of P, we can use bitwise AND operator P & 1
