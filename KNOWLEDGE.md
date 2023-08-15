@@ -608,6 +608,5 @@ The `all()` function is a powerful tool that can be used to check if all of the 
     Return: Returns the lowest index of the substring if it is found in a given string. If it’s not found then it returns -1.
 
 ## Edit Distance
+
 Edit distance is a term used in computer science. By definition, Edit distance is a string metric, a way of quantifying how dissimilar two strings (e.g. words) are to one another, measured by counting the minimum number of operations required to transform one string into the other. Source: [Wikipedia](https://en.wikipedia.org/wiki/Edit_distance).
-
-
