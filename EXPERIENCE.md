@@ -183,3 +183,28 @@ I hope this explanation helps you understand the logic behind the recursive solu
 ## `&` operator to check 0 or 1
 
     To obtain the least significant bit of P, we can use bitwise AND operator P & 1
+
+# Wed Aug 16 09:37:33 CST 2023
+
+## Trie
+
+### How to implement
+
+1. Two class: TrieNode and Trie.
+
+2. TrieNode has two attributes: a children:Dict{char: TrieNode,,,} and a is_end: bool
+
+    > Use the dictionary to hashmap the children Node.
+
+    > ```py
+    > class Trie:
+    >     def __init__(self):
+    >         self.root = TrieNode()
+    > ```
+
+3. methods:
+    - search(word: String)
+    - insert(word: String)
+    - startWith(prefix: String)
+      curr = self.root
+      loop: `for c in word` to check if it is a key in curr.children[c]
