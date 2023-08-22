@@ -236,3 +236,93 @@ part and the greedy solution could have O(N)\mathcal{O}(N)O(N) time complexity,
 # Monotonic Stack
 
 **A monotonic stack is simply a stack where the elements are always in sorted order.**
+
+# Tue Aug 22 18:48:24 CST 2023
+
+## `reversed(rotated)` vs. `rotated[::-1]`
+
+### difference
+
+The main difference between `rotated[::-1]` and `reversed(rotated)` is that `rotated[::-1]` returns a new list with the elements reversed, while `reversed(rotated)` returns an iterator that iterates over the elements in reverse order.
+
+Here is an example:
+
+```python
+rotated = [1, 2, 3, 4, 5]
+
+# `rotated[::-1]` returns a new list with the elements reversed.
+print(rotated[::-1])
+# [5, 4, 3, 2, 1]
+
+# `reversed(rotated)` returns an iterator that iterates over the elements in reverse order.
+for element in reversed(rotated):
+  print(element)
+# 5
+# 4
+# 3
+# 2
+# 1
+```
+
+In general, you should use `rotated[::-1]` if you need to create a new list with the elements reversed, and you should use `reversed(rotated)` if you need to iterate over the elements in reverse order.
+
+Here are some additional things to note:
+
+-   The `::-1` syntax is a slice notation that means "all elements, in reverse order".
+-   The `reversed()` function returns an iterator, which is an object that can be used to iterate over a sequence.
+-   You can use the `list()` function to convert an iterator to a list. For example, `list(reversed(rotated))` will create a list with the elements of `rotated` in reverse order.
+
+I hope this helps! Let me know if you have any other questions.
+
+### what if I `print(reversed(rotated))`
+
+If you print `reversed(rotated)`, it will print the elements of the list `rotated` in reverse order, but it will not create a new list. Instead, it will print an iterator that iterates over the elements in reverse order.
+
+Here is an example:
+
+```python
+rotated = [1, 2, 3, 4, 5]
+
+print(reversed(rotated))
+```
+
+This code will print the following output:
+
+```
+<list_reverseiterator object at 0x3e9d25706f50>
+```
+
+This is an iterator object, which means that it can be used to iterate over the elements of the list in reverse order. For example, you can use a `for` loop to iterate over the iterator:
+
+```python
+for element in reversed(rotated):
+  print(element)
+```
+
+This code will print the following output:
+
+```
+5
+4
+3
+2
+1
+```
+
+As you can see, the elements of the list are printed in reverse order.
+
+If you want to create a new list with the elements of the list `rotated` in reverse order, you can use the `list()` function:
+
+```python
+print(list(reversed(rotated)))
+```
+
+This code will print the following output:
+
+```
+[5, 4, 3, 2, 1]
+```
+
+This is a new list with the elements of `rotated` in reverse order.
+
+I hope this helps! Let me know if you have any other questions.
